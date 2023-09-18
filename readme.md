@@ -12,3 +12,19 @@ Detailed description can be found here:
 2. [Micronaut Tutorial: Server Application](https://piotrminkowski.com/2019/04/23/micronaut-tutorial-server-application/)
 3. [Micronaut Tutorial: Security](https://piotrminkowski.com/2019/04/25/micronaut-tutorial-security/)
 4. [Micronaut Tutorial: Reactive](https://piotrminkowski.com/2019/11/12/micronaut-tutorial-reactive/)
+
+
+# Docker Build & K8s Deployment
+1. `sudo  docker build -t sample-micronaut-applications . `
+2. `docker run -p 8100:8100 sample-micronaut-applications:latest`
+3. `docker image tag sample-micronaut-applications:latest dileepg2k/sample-micronaut-applications:latest`
+4. `docker login` , `docker push dileepg2k/sample-micronaut-applications:latest`
+5. Load image to kind cluster `kind load docker-image dileepg2k/sample-micronaut-applications:latest --name local-k8s` 
+6. `kubectl get nodes local-k8s-control-plane -o yaml`
+7. `kubectl create -f ./devops/deployment_values.yaml`
+
+# Kafka Integration
+1. 
+
+# Health Checks
+

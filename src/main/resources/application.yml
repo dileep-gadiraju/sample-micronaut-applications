@@ -61,3 +61,7 @@ credentials:
     scott: VIEW
     piomin: VIEW
     test: ADMIN
+
+kafka:
+  bootstrap:
+    servers: localhost:9092

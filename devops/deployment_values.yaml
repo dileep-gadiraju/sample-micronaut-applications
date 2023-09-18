@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-micronaut-apps
+  labels:
+    app: sample-micronaut-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-micronaut-apps
+  template:
+    metadata:
+      labels:
+        app: sample-micronaut-apps
+    spec:
+      containers:
+        - name: sample-micronaut-apps
+          image: docker.io/dileepg2k/sample-micronaut-applications
+          ports:
+            - containerPort: 8100
+          livenessProbe:
+            initialDelaySeconds: 1
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 1
+            httpGet:
+              host:
+              scheme: HTTP
+              path: /
+              httpHeaders:
+                - name: Host
+                  value: myapplication1.com
+              port: 8100
+          readinessProbe:
+            initialDelaySeconds: 1
+            periodSeconds: 2
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 1
+            httpGet:
+              host:
+              scheme: HTTP
+              path: /
+              httpHeaders:
+                - name: Host
+                  value: myapplication1.com
+              port: 8100
