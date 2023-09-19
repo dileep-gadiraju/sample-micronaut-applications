@@ -85,7 +85,6 @@ kafka:
       session:
         timeout:
           ms: 1000
-
 #  ssl:
 #    keystore:
 #      location: /path/to/client.keystore.p12
@@ -96,3 +95,10 @@ kafka:
 #      type: PKCS12
 #  security:
 #    protocol: ssl
+
+# MongoDB
+mongodb:
+  uri: mongodb://@localhost:27017/customers
+#  health:
+#    enabled: true
+#  uri: mongodb://username:password@localhost:27017/databaseName
