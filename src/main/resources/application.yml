@@ -43,7 +43,8 @@ endpoints:
     enabled: false
 # Health Check/Probes Endpoints
   health:
-    enabled: true
+    url:
+      enabled: true
     sensitive: false
     details-visible: ANONYMOUS
     status:
@@ -74,6 +75,8 @@ credentials:
     test: ADMIN
 
 kafka:
+  health:
+    enabled: false
   bootstrap:
     servers: localhost:9092
   health-indicator-topic: kafka-health-indicator
@@ -81,7 +84,8 @@ kafka:
     default:
       session:
         timeout:
-          ms: 30000
+          ms: 1000
+
 #  ssl:
 #    keystore:
 #      location: /path/to/client.keystore.p12
