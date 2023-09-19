@@ -41,6 +41,17 @@ endpoints:
     sensitive: false
   stop:
     enabled: false
+# Health Check/Probes Endpoints
+  health:
+    enabled: true
+    sensitive: false
+    details-visible: ANONYMOUS
+    status:
+      http-mapping:
+        DOWN: 503
+    disk-space:
+      enabled: true
+      threshold: 90MB
 
 test.property: hello
 
@@ -65,3 +76,19 @@ credentials:
 kafka:
   bootstrap:
     servers: localhost:9092
+  health-indicator-topic: kafka-health-indicator
+  consumers:
+    default:
+      session:
+        timeout:
+          ms: 30000
+#  ssl:
+#    keystore:
+#      location: /path/to/client.keystore.p12
+#      password: secret
+#    truststore:
+#      location: /path/to/client.truststore.jks
+#      password: secret
+#      type: PKCS12
+#  security:
+#    protocol: ssl

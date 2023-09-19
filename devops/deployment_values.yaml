@@ -16,7 +16,9 @@ spec:
     spec:
       containers:
         - name: sample-micronaut-apps
-          image: docker.io/dileepg2k/sample-micronaut-applications
+          image: dileepg2k/sample-micronaut-applications
+      imagePullSecrets:
+        - name: docker-hub-sec
           ports:
             - containerPort: 8100
           livenessProbe:
