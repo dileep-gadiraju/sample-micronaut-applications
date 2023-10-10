@@ -22,7 +22,7 @@ Detailed description can be found here:
 4. `docker login` , `docker push dileepg2k/sample-micronaut-applications:latest`
 5. `kind create cluster --name local-k8s`
 6. `kubectl cluster-info --context kind-local-k8s`
-7. kubectl create secret docker-hub-sec NAME --docker-username=dileepg2k --docker-password=AkulRocks@1202
+7. kubectl create secret docker-hub-sec NAME --docker-username=xxxxx --docker-password=xxxxx
 8. Load image to kind cluster `kind load docker-image dileepg2k/sample-micronaut-applications:latest --name local-k8s` 
 9. `kubectl get nodes local-k8s-control-plane -o yaml`
 10. `kubectl create -f ./devops/deployment_values.yaml`
